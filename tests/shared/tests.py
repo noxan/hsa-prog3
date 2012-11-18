@@ -2,7 +2,7 @@ from nose.tools import assert_equal
 
 from shared.geometry import Point
 from shared.nibble import Nibble
-from shared.utils import movement_to_energy
+from shared.utils import movement_to_energy, code_to_movement
 
 
 class TestUtils(object):
@@ -16,6 +16,13 @@ class TestUtils(object):
         assert_equal(movement_to_energy(2,0), 5)
         assert_equal(movement_to_energy(2,1), 6)
         assert_equal(movement_to_energy(2,2), 7)
+
+    def test_code_to_movement(self):
+        assert_equal(code_to_movement(0), (-2, 2))
+        assert_equal(code_to_movement(4), (2, 2))
+        assert_equal(code_to_movement(20), (-2, -2))
+        assert_equal(code_to_movement(24), (2, -2))
+        assert_equal(code_to_movement(12), (0,0))
 
 
 class TestPoint(object):
