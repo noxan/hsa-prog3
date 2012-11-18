@@ -1,4 +1,6 @@
 from shared.geometry import Point
+from shared.utils import movement_to_energy
+
 
 class Nibble(object):
     _energy = 0
@@ -7,6 +9,12 @@ class Nibble(object):
     def __init__(self, position=Point(0,0), energy=30):
         self._energy = energy
         self._position = position
+
+    def move_vector(self, delta_x, delta_y):
+        delta_energy = movement_to_energy(delta_x, delta_y)
+        self._energy -= delta_energy
+        self._position._x += delta_x
+        self._position._y += delta_y
 
     def get_position(self):
         return self._position
