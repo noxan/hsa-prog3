@@ -38,9 +38,9 @@ class TestNibble(object):
         assert_equal(n._position._x, 5)
         assert_equal(n._position._y, 10)
 
-    def test_move_vector(self):
+    def test_move(self):
         n = Nibble()
-        n.move_vector(2,2)
+        n.move(2,2)
         assert_equal(n._energy, 23)
         assert_equal(n._position._x, 2)
         assert_equal(n._position._y, 2)

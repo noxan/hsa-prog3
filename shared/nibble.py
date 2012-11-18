@@ -10,7 +10,7 @@ class Nibble(object):
         self._energy = energy
         self._position = position
 
-    def move_vector(self, delta_x, delta_y):
+    def move(self, delta_x, delta_y):
         delta_energy = movement_to_energy(delta_x, delta_y)
         self._energy -= delta_energy
         self._position._x += delta_x
