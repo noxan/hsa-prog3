@@ -8,5 +8,14 @@ class Nibble(object):
         self._energy = energy
         self._position = position
 
+    def get_position(self):
+        return self._position
+
+    def get_position_x(self):
+        return self._position._x
+
+    def get_position_y(self):
+        return self._position._y
+
     def get_energy(self):
         return self._energy
