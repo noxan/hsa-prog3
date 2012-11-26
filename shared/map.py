@@ -11,6 +11,9 @@ class Map(object):
             for y in range(self._height):
                 self._map[x].append('.')
 
+    def get(self, x, y):
+        return self._map[x][y]
+
     def get_width(self):
         return self._width
 
