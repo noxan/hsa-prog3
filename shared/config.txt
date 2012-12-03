@@ -1,0 +1,5 @@
+port = 10006
+beginn = 2013-01-27 13:00:00
+runden = 100
+zellenProNibble = 15
+futterProNibble = 25
