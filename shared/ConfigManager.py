@@ -12,18 +12,18 @@ class ConfigManager():
 
     def __init__(self, config):
         self.config = config
- 
+
     def getConfig(self, name):
 
 # holt den wert aus dem file
 
         with open(self.config) as configfile:
-            for line in configfile: 
+            for line in configfile:
                 line = line.strip()
                 wort = line.split(" = ")
                 if wort[0] == name:
                     return wort[1]
- 
+
     def setConfig(self, name, value):
 
 # schreibt einen neuen wert ins file
@@ -42,11 +42,11 @@ class ConfigManager():
         writeConfig = open("config.txt", "w")
         writeConfig.write(file)
         writeConfig.close
- 
- 
- 
+
+
+
 #test:
-    
+
 penis = ConfigManager("config.txt")
 a = penis.getConfig("runden")
 print a
