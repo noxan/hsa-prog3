@@ -11,6 +11,7 @@ class Nibble(object):
         else:
             self._position = Point(0, 0)
         self._energy = energy
+        self._world.set(self.get_position_x(), self.get_position_y(), self.get_name())
 
     def move_code(self, code):
         code = int(code)
