@@ -32,3 +32,14 @@ class World(object):
 
     def get_height(self):
         return self._height
+
+class WorldStringRenderer(object):
+    def __init__(self, world):
+        self._world = world
+
+    def render(self):
+        for x in range(self._world.get_width()):
+            line = ''
+            for y in range(self._world.get_height()):
+                line += self._world.get(x, y)
+            print line
