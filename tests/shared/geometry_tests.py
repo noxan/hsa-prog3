@@ -19,3 +19,14 @@ class TestWorldPoint(object):
         assert_equal(p.get_x(), 0)
         assert_equal(p.get_y(), 0)
 
+    def test_move_positive(self):
+        p = WorldPoint(self.world)
+        p.move(15, 14)
+        assert_equal(p.get_x(), 5)
+        assert_equal(p.get_y(), 4)
+
+    def test_move_negative(self):
+        p = WorldPoint(self.world)
+        p.move(-3, -16)
+        assert_equal(p.get_x(), 7)
+        assert_equal(p.get_y(), 4)
