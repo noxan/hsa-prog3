@@ -9,6 +9,12 @@ class Point(object):
     def get_y(self):
         return self._y
 
+    def set_x(self, x):
+        self._x = x
+
+    def set_y(self, y):
+        self._y = y
+
     def move(self, dx, dy):
         self._x += dx
         self._y += dy
