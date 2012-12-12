@@ -21,6 +21,12 @@ class WorldPoint(Point):
         self._world = world
         return super(WorldPoint, self).__init__(x, y)
 
+    def _add_clip_x(self, x, dx):
+        return (x + dx) % self._world.get_width()
+
+    def _add_clip_y(self, y, dy):
+        return (y + dy) % self._world.get_height()
+
     def move(self, dx, dy):
-        self._x = (self._x + dx) % self._world.get_width()
-        self._y = (self._y + dy) % self._world.get_height()
+        self._x = self._add_clip_x(self._x, dx)
+        self._y = self._add_clip_y(self._y, dy)
