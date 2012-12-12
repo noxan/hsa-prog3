@@ -7,7 +7,7 @@ from shared.geometry import Point
 
 class TestNibble(object):
     def setup(self):
-        self.world = World(10, 10)
+        self.world = World(20, 20)
 
     def test_init_default(self):
         n = Nibble('a', self.world)
