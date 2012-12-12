@@ -1,3 +1,8 @@
+import copy
+
+from shared.geometry import WorldPoint
+
+
 class World(object):
     def __init__(self, width, height):
         self._width = width
@@ -11,25 +16,25 @@ class World(object):
             for y in range(self._height):
                 self._world[x].append('.')
 
-    def is_empty(self, x, y):
-        return self.get(x, y) == '.'
+    def is_empty(self, point):
+        return self.get(point) == '.'
 
-    def get(self, x, y):
-        return self._world[x][y]
+    def get(self, point):
+        return self._world[point.get_x()][point.get_y()]
 
-    def set(self, x, y, obj):
+    def set(self, point, obj):
         #if not self.is_empty(x, y):
-        self._world[x][y] = obj
+        self._world[point.get_x()][point.get_y()] = obj
 
-    def set_empty(self, x, y):
-        self.set(x, y, '.')
+    def set_empty(self, point):
+        self.set(point, '.')
 
-    def move(self, x, y, obj, dx, dy):
-        tx = x + dx
-        ty = y + dy
-        if tx != x and ty != y:
-            self.set(tx, ty, obj)
-            self.set_empty(x, y)
+    def move(self, point, obj, dx, dy):
+        tpoint = copy.deepcopy(point)
+        tpoint.move(dx, dy)
+        if point != tpoint:
+            self.set(tpoint, obj)
+            self.set_empty(point)
 
     def get_width(self):
         return self._width
@@ -45,5 +50,5 @@ class WorldStringRenderer(object):
         for x in range(self._world.get_width()):
             line = ''
             for y in range(self._world.get_height()):
-                line += self._world.get(x, y)
+                line += self._world.get(WorldPoint(self._world, x, y))
             print line

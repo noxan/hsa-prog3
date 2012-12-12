@@ -1,4 +1,4 @@
-from shared.geometry import Point
+from shared.geometry import WorldPoint
 from shared.utils import movement_to_energy, code_to_movement
 
 
@@ -9,9 +9,9 @@ class Nibble(object):
         if position:
             self._position = position
         else:
-            self._position = Point(0, 0)
+            self._position = WorldPoint(world, 0, 0)
         self._energy = energy
-        self._world.set(self.get_position_x(), self.get_position_y(), self.get_name())
+        self._world.set(self.get_position(), self.get_name())
 
     def move_code(self, code):
         code = int(code)
@@ -21,7 +21,7 @@ class Nibble(object):
     def move(self, dx, dy):
         denergy = movement_to_energy(dx, dy)
         self._energy -= denergy
-        self._world.move(self.get_position_x(), self.get_position_y(), self.get_name(), dx, dy)
+        self._world.move(self.get_position(), self.get_name(), dx, dy)
         self._position._x += dx
         self._position._y += dy
 
