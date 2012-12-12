@@ -1,6 +1,5 @@
 from nose.tools import assert_equal
 
-from shared.geometry import Point
 from shared.utils import movement_to_energy, code_to_movement
 
 
@@ -24,8 +23,3 @@ class TestUtils(object):
         assert_equal(code_to_movement(12), (0,0))
 
 
-class TestPoint(object):
-    def test_init(self):
-        p = Point(2,3)
-        assert_equal(p._x, 2)
-        assert_equal(p._y, 3)
