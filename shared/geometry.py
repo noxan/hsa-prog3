@@ -18,4 +18,5 @@ class Point(object):
 
 class WorldPoint(Point):
     def __init__(self, world, x=0, y=0):
-        return super(Point, self).__init__(x, y)
+        self._world = world
+        return super(WorldPoint, self).__init__(x, y)
