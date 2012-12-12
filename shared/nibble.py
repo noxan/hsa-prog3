@@ -21,6 +21,7 @@ class Nibble(object):
     def move(self, delta_x, delta_y):
         delta_energy = movement_to_energy(delta_x, delta_y)
         self._energy -= delta_energy
+        self._world.move(self.get_position_x(), self.get_position_y(), self.get_name(), delta_x, delta_y)
         self._position._x += delta_x
         self._position._y += delta_y
 
