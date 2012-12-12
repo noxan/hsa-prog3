@@ -9,9 +9,9 @@ class Point(object):
     def get_y(self):
         return self._y
 
-    def move(self, delta_x, delta_y):
-        self._x += delta_x
-        self._y += delta_y
+    def move(self, dx, dy):
+        self._x += dx
+        self._y += dy
 
     def __str__(self):
         return "Point({0}, {1})".format(self._x, self._y)
