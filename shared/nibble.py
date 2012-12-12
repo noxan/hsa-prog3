@@ -19,6 +19,9 @@ class Nibble(object):
         self._position._x += delta_x
         self._position._y += delta_y
 
+    def get_name(self):
+        return self._name
+
     def get_position(self):
         return self._position
 
