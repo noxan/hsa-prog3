@@ -25,7 +25,8 @@ class Point(object):
 class WorldPoint(Point):
     def __init__(self, world, x=0, y=0):
         self._world = world
-        return super(WorldPoint, self).__init__(x, y)
+        self.set_x(x)
+        self.set_y(y)
 
     def set_x(self, x, dx):
         return (x + dx) % self._world.get_width()
