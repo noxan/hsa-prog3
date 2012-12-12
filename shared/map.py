@@ -22,6 +22,11 @@ class Map(object):
             raise "Field is not empty"
         self._map[x][y] = obj
 
+    def move(self, x, y, obj, tx, ty):
+        if tx != x and ty != y:
+            self.set(tx, ty, obj)
+            self.set(x, y, '.')
+
     def get_width(self):
         return self._width
 
