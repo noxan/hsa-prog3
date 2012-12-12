@@ -17,6 +17,11 @@ class Map(object):
     def get(self, x, y):
         return self._map[x][y]
 
+    def set(self, x, y, obj):
+        if not self.is_empty(x, y):
+            raise "Field is not empty"
+        self._map[x][y] = obj
+
     def get_width(self):
         return self._width
 
