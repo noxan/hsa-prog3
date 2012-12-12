@@ -18,12 +18,12 @@ class Nibble(object):
         movement = code_to_movement(code)
         return self.move(movement[0], movement[1])
 
-    def move(self, delta_x, delta_y):
-        delta_energy = movement_to_energy(delta_x, delta_y)
-        self._energy -= delta_energy
-        self._world.move(self.get_position_x(), self.get_position_y(), self.get_name(), delta_x, delta_y)
-        self._position._x += delta_x
-        self._position._y += delta_y
+    def move(self, dx, dy):
+        denergy = movement_to_energy(dx, dy)
+        self._energy -= denergy
+        self._world.move(self.get_position_x(), self.get_position_y(), self.get_name(), dx, dy)
+        self._position._x += dx
+        self._position._y += dy
 
     def get_name(self):
         return self._name
