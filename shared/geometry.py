@@ -20,3 +20,7 @@ class WorldPoint(Point):
     def __init__(self, world, x=0, y=0):
         self._world = world
         return super(WorldPoint, self).__init__(x, y)
+
+    def move(self, dx, dy):
+        self._x = (self._x + dx) % self._world.get_width()
+        self._y = (self._y + dy) % self._world.get_height()
