@@ -15,3 +15,7 @@ class Point(object):
 
     def __str__(self):
         return "Point({0}, {1})".format(self._x, self._y)
+
+class WorldPoint(Point):
+    def __init__(self, world, x=0, y=0):
+        return super(Point, self).__init__(x, y)
