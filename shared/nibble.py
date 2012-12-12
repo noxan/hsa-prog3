@@ -39,3 +39,6 @@ class Nibble(object):
 
     def get_energy(self):
         return self._energy
+
+    def __str__(self):
+        return "%s (%s)" % (self.get_name(), self.get_position())
