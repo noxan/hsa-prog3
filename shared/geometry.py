@@ -1,7 +1,4 @@
 class Point(object):
-    _x = 0
-    _y = 0
-
     def __init__(self, x=0, y=0):
         self._x = x
         self._y = y
