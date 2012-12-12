@@ -18,8 +18,7 @@ class World(object):
         return self._world[x][y]
 
     def set(self, x, y, obj):
-        if not self.is_empty(x, y):
-            raise "Field is not empty"
+        #if not self.is_empty(x, y):
         self._world[x][y] = obj
 
     def move(self, x, y, obj, tx, ty):
