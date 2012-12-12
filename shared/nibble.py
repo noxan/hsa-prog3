@@ -15,7 +15,7 @@ class Nibble(object):
     def move_code(self, code):
         code = int(code)
         movement = code_to_movement(code)
-        return self.move_vector(movement[0], movement[1])
+        return self.move(movement[0], movement[1])
 
     def move(self, delta_x, delta_y):
         delta_energy = movement_to_energy(delta_x, delta_y)
