@@ -11,6 +11,9 @@ class Map(object):
             for y in range(self._height):
                 self._map[x].append('.')
 
+    def is_empty(self, x, y):
+        return self.get(x, y) == '.'
+
     def get(self, x, y):
         return self._map[x][y]
 
