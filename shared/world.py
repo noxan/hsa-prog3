@@ -21,7 +21,9 @@ class World(object):
         #if not self.is_empty(x, y):
         self._world[x][y] = obj
 
-    def move(self, x, y, obj, tx, ty):
+    def move(self, x, y, obj, dx, dy):
+        tx = x + dx
+        ty = y + dy
         if tx != x and ty != y:
             self.set(tx, ty, obj)
             self.set(x, y, '.')
