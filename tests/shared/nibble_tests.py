@@ -28,3 +28,11 @@ class TestNibble(object):
         assert_equal(n._position._x, 2)
         assert_equal(n._position._y, 2)
 
+    def test_move_code(self):
+        n = Nibble('c', self.world)
+        assert_equal(n._position._x, 0)
+        assert_equal(n._position._y, 0)
+        n.move_code(18)
+        assert_equal(n._energy, 27)
+        assert_equal(n._position._x, 1)
+        assert_equal(n._position._y, -1)
