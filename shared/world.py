@@ -21,12 +21,15 @@ class World(object):
         #if not self.is_empty(x, y):
         self._world[x][y] = obj
 
+    def set_empty(self, x, y):
+        self.set(x, y, '.')
+
     def move(self, x, y, obj, dx, dy):
         tx = x + dx
         ty = y + dy
         if tx != x and ty != y:
             self.set(tx, ty, obj)
-            self.set(x, y, '.')
+            self.set_empty(x, y)
 
     def get_width(self):
         return self._width
