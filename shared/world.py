@@ -1,26 +1,26 @@
-class Map(object):
+class World(object):
     def __init__(self, width, height):
         self._width = width
         self._height = height
         self.clear()
 
     def clear(self):
-        self._map = []
+        self._world = []
         for x in range(self._width):
-            self._map.append([])
+            self._world.append([])
             for y in range(self._height):
-                self._map[x].append('.')
+                self._world[x].append('.')
 
     def is_empty(self, x, y):
         return self.get(x, y) == '.'
 
     def get(self, x, y):
-        return self._map[x][y]
+        return self._world[x][y]
 
     def set(self, x, y, obj):
         if not self.is_empty(x, y):
             raise "Field is not empty"
-        self._map[x][y] = obj
+        self._world[x][y] = obj
 
     def move(self, x, y, obj, tx, ty):
         if tx != x and ty != y:
