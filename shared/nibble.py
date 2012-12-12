@@ -3,10 +3,8 @@ from shared.utils import movement_to_energy, code_to_movement
 
 
 class Nibble(object):
-    _energy = 0
-    _position = Point(0, 0)
-
-    def __init__(self, position=Point(0,0), energy=30):
+    def __init__(self, name, position=Point(0,0), energy=30):
+        self._name = name
         self._energy = energy
         self._position = position
 
