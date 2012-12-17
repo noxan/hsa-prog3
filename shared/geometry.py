@@ -50,3 +50,6 @@ class WorldPoint(Point):
         if isinstance(obj, WorldPoint):
             return obj.get_x() == self.get_x() and obj.get_y() == self.get_y()
         return False
+
+    def __str__(self):
+        return "WorldPoint(%s, %s)" % (self.get_x(), self.get_y())
