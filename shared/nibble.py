@@ -50,5 +50,17 @@ class Nibble(object):
         else:
             return 0
 
+    def eat(self, other):
+        if isinstance(other, Nibble):
+            compare = self.compare_energy(other)
+            if compare < 0:
+                self._energy += other.get_energy()
+                other._energy = 0
+            else:
+                other._energy += self.get_energy()
+                self._energy = 0
+        else:
+            self._energy += 5
+
     def __str__(self):
         return "%s (%s)" % (self.get_name(), self.get_position())
