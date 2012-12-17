@@ -18,5 +18,5 @@ print a, b, c
 
 print world.get_view_of_nibble(a)
 
-for p in world.get_empty_positions(8):
-    print str(p)
+world.spawn_food(5)
+wrender.render()
