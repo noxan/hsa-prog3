@@ -29,6 +29,23 @@ class World(object):
     def set_empty(self, point):
         self.set(point, '.')
 
+    def get_view_of_nibble(self, nibble):
+        pos = nibble.get_position()
+        if self.get(pos) != nibble.get_name():
+            raise "Nibble is not on this world or out of sync (positions do not match)!"
+        view = ''
+        for iy in range(5):
+            py = pos.get_y() + iy - 2
+            for ix in range(5):
+                px = pos.get_x() + ix - 2
+                p = WorldPoint(self, px, py)
+                value = self.get(p)
+                if value != '.' and value != '*':
+                    value = '='
+                view += value
+            view += '\n'
+        return view
+
     def move(self, point, obj, dx, dy):
         tpoint = copy.deepcopy(point)
         tpoint.move(dx, dy)
