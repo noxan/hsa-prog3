@@ -1,8 +1,8 @@
 from shared.nibble import Nibble
-from shared.world import World, WorldStringRenderer
+from shared.world import NibbleWorld, WorldStringRenderer
 
 
-world = World(10, 10)
+world = NibbleWorld(10, 10)
 wrender = WorldStringRenderer(world)
 
 a = Nibble('a', world)

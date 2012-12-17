@@ -1,5 +1,4 @@
 from shared.geometry import WorldPoint
-from shared.world import World
 from shared.utils import movement_to_energy, code_to_movement
 
 
@@ -45,6 +44,3 @@ class Nibble(object):
 
     def __str__(self):
         return "%s (%s)" % (self.get_name(), self.get_position())
-
-class NibbleWorld(World):
-    pass

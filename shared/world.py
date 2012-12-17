@@ -49,32 +49,6 @@ class World(object):
                         empty_positions.append(p)
         return empty_positions
 
-    def get_view_of_nibble(self, nibble):
-        pos = nibble.get_position()
-        if self.get(pos) is not nibble:
-            raise "Nibble is not on this world or out of sync (positions do not match)!"
-        view = ''
-        for iy in range(5):
-            for ix in range(5):
-                p = WorldPoint(self, pos.get_x() + ix - 2, pos.get_y() + iy - 2)
-                value = self.get(p)
-                if isinstance(value, Nibble):
-                    if nibble.get_energy() > value.get_energy():
-                        view += '>'
-                    elif nibble.get_energy() < value.get_energy():
-                        view += '<'
-                    else:
-                        view += '='
-                else:
-                    view += str(value)
-            view += '\n'
-        return view
-
-    def spawn_food(self, count):
-        for i in range(count):
-            p = self.get_random_point()
-            self.set(p, '*')
-
     def get_random_coordinate(self):
         return random.randint(1, self.get_width()) - 1
 
@@ -108,3 +82,30 @@ class WorldStringRenderer(object):
                 else:
                     line += value
             print line
+
+class NibbleWorld(World):
+    def get_view_of_nibble(self, nibble):
+        pos = nibble.get_position()
+        if self.get(pos) is not nibble:
+            raise "Nibble is not on this world or out of sync (positions do not match)!"
+        view = ''
+        for iy in range(5):
+            for ix in range(5):
+                p = WorldPoint(self, pos.get_x() + ix - 2, pos.get_y() + iy - 2)
+                value = self.get(p)
+                if isinstance(value, Nibble):
+                    if nibble.get_energy() > value.get_energy():
+                        view += '>'
+                    elif nibble.get_energy() < value.get_energy():
+                        view += '<'
+                    else:
+                        view += '='
+                else:
+                    view += str(value)
+            view += '\n'
+        return view
+
+    def spawn_food(self, count):
+        for i in range(count):
+            p = self.get_random_point()
+            self.set(p, '*')
