@@ -27,6 +27,9 @@ class Nibble(object):
     def get_name(self):
         return self._name
 
+    def is_alive(self):
+        return self._energy > 0
+
     def get_position(self):
         return self._position
 
