@@ -25,7 +25,6 @@ class World(object):
         return self._world[point.get_x()][point.get_y()]
 
     def set(self, point, obj):
-        #if not self.is_empty(x, y):
         self._world[point.get_x()][point.get_y()] = obj
 
     def set_empty(self, point):
@@ -107,3 +106,10 @@ class NibbleWorld(World):
         for i in range(count):
             p = self.get_random_point()
             self.set(p, '*')
+
+    def set(self, point, obj):
+        if not self.is_empty(point):
+            other = self.get(point)
+            print obj, other
+        self._world[point.get_x()][point.get_y()] = obj
+        super(NibbleWorld, self).set(point, obj)
