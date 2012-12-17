@@ -42,5 +42,13 @@ class Nibble(object):
     def get_energy(self):
         return self._energy
 
+    def compare_energy(self, other):
+        if self.get_energy() > other.get_energy():
+            return 1
+        elif self.get_energy() < other.get_energy():
+            return -1
+        else:
+            return 0
+
     def __str__(self):
         return "%s (%s)" % (self.get_name(), self.get_position())
