@@ -46,11 +46,11 @@ class World(object):
             view += '\n'
         return view
 
-    def move(self, point, obj, dx, dy):
+    def move(self, point, dx, dy):
         tpoint = copy.deepcopy(point)
         tpoint.move(dx, dy)
         if point != tpoint:
-            self.set(tpoint, obj)
+            self.set(tpoint, self.get(point))
             self.set_empty(point)
 
     def get_width(self):
