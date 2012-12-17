@@ -31,9 +31,7 @@ class World(object):
     def set_empty(self, point):
         self.set(point, '.')
 
-    def get_empty_positions(self, distance=None):
-        if distance is None:
-            distance = 0
+    def get_empty_positions(self, distance=0):
         empty_positions = []
         for iy in range(self.get_height()):
             for ix in range(self.get_width()):
