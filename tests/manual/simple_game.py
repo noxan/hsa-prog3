@@ -18,3 +18,5 @@ c.move(-1,-2)
 
 wrender.render()
 print a, b, c
+
+print world.get_view_of_nibble(a)
