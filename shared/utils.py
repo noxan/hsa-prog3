@@ -12,5 +12,5 @@ def movement_to_energy(delta_x, delta_y):
 
 def code_to_movement(code):
     mx = (code % 5) - 2
-    my = 2 - int(code / 5)
+    my = int(code / 5) - 2
     return (mx, my)

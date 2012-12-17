@@ -35,4 +35,4 @@ class TestNibble(object):
         n.move_code(18)
         assert_equal(n._energy, 27)
         assert_equal(n._position._x, 1)
-        assert_equal(n._position._y, -1)
+        assert_equal(n._position._y, 1)
