@@ -72,5 +72,9 @@ class WorldStringRenderer(object):
         for y in range(self._world.get_height()):
             line = ''
             for x in range(self._world.get_width()):
-                line += str(self._world.get(WorldPoint(self._world, x, y)))
+                value = self._world.get(WorldPoint(self._world, x, y))
+                if isinstance(value, Nibble):
+                    line += value.get_name()
+                else:
+                    line += value
             print line
