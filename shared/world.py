@@ -107,9 +107,12 @@ class NibbleWorld(World):
             p = self.get_random_point()
             self.set(p, '*')
 
+    def handle_collision(self, obj, other):
+        print obj, other
+
     def set(self, point, obj):
         if not self.is_empty(point):
             other = self.get(point)
-            print obj, other
+            self.handle_collision(obj, other)
         self._world[point.get_x()][point.get_y()] = obj
         super(NibbleWorld, self).set(point, obj)
