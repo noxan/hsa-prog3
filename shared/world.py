@@ -110,11 +110,14 @@ class NibbleWorld(World):
     def handle_collision(self, obj, other):
         if isinstance(obj, Nibble):
             if isinstance(other, Nibble): # nibble -> nibble
-                pass
+                print "nibble->nibble"
             else: # nibble -> food
-                pass
+                print "nibble->food"
         else: # food -> food
-            pass
+            if isinstance(other, Nibble): # food -> nibble
+                print "food->nibble"
+            else: # food -> food
+                print "food->food"
         return obj
 
     def set(self, point, obj):
