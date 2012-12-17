@@ -1,6 +1,7 @@
 import copy
 
 from shared.geometry import WorldPoint
+from shared.nibble import Nibble
 
 
 class World(object):
@@ -31,18 +32,22 @@ class World(object):
 
     def get_view_of_nibble(self, nibble):
         pos = nibble.get_position()
-        if self.get(pos) != nibble.get_name():
+        if self.get(pos) is not nibble:
             raise "Nibble is not on this world or out of sync (positions do not match)!"
         view = ''
         for iy in range(5):
-            py = pos.get_y() + iy - 2
             for ix in range(5):
-                px = pos.get_x() + ix - 2
-                p = WorldPoint(self, px, py)
+                p = WorldPoint(self, pos.get_x() + ix - 2, pos.get_y() + iy - 2)
                 value = self.get(p)
-                if value != '.' and value != '*':
-                    value = '='
-                view += value
+                if isinstance(value, Nibble):
+                    if nibble.get_energy() > value.get_energy():
+                        view += '>'
+                    elif nibble.get_energy() < value.get_energy():
+                        view += '<'
+                    else:
+                        view += '='
+                else:
+                    view += str(value)
             view += '\n'
         return view
 
