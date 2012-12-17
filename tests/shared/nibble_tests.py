@@ -36,3 +36,12 @@ class TestNibble(object):
         assert_equal(n._energy, 27)
         assert_equal(n._position._x, 1)
         assert_equal(n._position._y, 1)
+
+    def test_compare_energy(self):
+        a = Nibble('a', self.world)
+        b = Nibble('b', self.world)
+        assert_equal(a.compare_energy(b), 0)
+        a.move(1,1)
+        assert_equal(a.compare_energy(b), -1)
+        b.move(2,2)
+        assert_equal(a.compare_energy(b), 1)
