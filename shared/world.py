@@ -30,6 +30,24 @@ class World(object):
     def set_empty(self, point):
         self.set(point, '.')
 
+    def get_empty_positions(self, distance=None):
+        if distance is None:
+            distance = 0
+        empty_positions = []
+        for iy in range(self.get_height()):
+            for ix in range(self.get_width()):
+                p = WorldPoint(self, ix, iy)
+                distance_empty = True
+                if self.is_empty(p):
+                    for idy in range(distance):
+                        for idx in range(distance):
+                            dp = WorldPoint(self, ix + idx - distance/2,  iy + idy - distance/2)
+                            if not self.is_empty(dp):
+                                distance_empty = False
+                    if distance_empty:
+                        empty_positions.append(p)
+        return empty_positions
+
     def get_view_of_nibble(self, nibble):
         pos = nibble.get_position()
         if self.get(pos) is not nibble:
