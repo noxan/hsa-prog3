@@ -108,11 +108,17 @@ class NibbleWorld(World):
             self.set(p, '*')
 
     def handle_collision(self, obj, other):
-        print obj, other
+        if isinstance(obj, Nibble):
+            if isinstance(other, Nibble): # nibble -> nibble
+                pass
+            else: # nibble -> food
+                pass
+        else: # food -> food
+            pass
+        return obj
 
     def set(self, point, obj):
         if not self.is_empty(point):
-            other = self.get(point)
-            self.handle_collision(obj, other)
+            obj = self.handle_collision(obj, self.get(point))
         self._world[point.get_x()][point.get_y()] = obj
         super(NibbleWorld, self).set(point, obj)
