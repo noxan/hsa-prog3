@@ -72,5 +72,5 @@ class WorldStringRenderer(object):
         for y in range(self._world.get_height()):
             line = ''
             for x in range(self._world.get_width()):
-                line += self._world.get(WorldPoint(self._world, x, y))
+                line += str(self._world.get(WorldPoint(self._world, x, y)))
             print line
