@@ -70,6 +70,11 @@ class World(object):
             view += '\n'
         return view
 
+    def spawn_food(self, count):
+        for i in range(count):
+            p = self.get_random_point()
+            self.set(p, '*')
+
     def get_random_coordinate(self):
         return random.randint(1, self.get_width()) - 1
 
