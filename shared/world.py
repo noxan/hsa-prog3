@@ -1,4 +1,5 @@
 import copy
+import random
 
 from shared.geometry import WorldPoint
 from shared.nibble import Nibble
@@ -68,6 +69,12 @@ class World(object):
                     view += str(value)
             view += '\n'
         return view
+
+    def get_random_coordinate(self):
+        return random.randint(1, self.get_width()) - 1
+
+    def get_random_point(self):
+        return WorldPoint(self, self.get_random_coordinate(), self.get_random_coordinate())
 
     def move(self, point, dx, dy):
         tpoint = copy.deepcopy(point)
