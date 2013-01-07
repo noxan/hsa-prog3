@@ -21,7 +21,7 @@ class Client(threading.Thread):
 
     def run(self):
         while self.connected:
-            ready = select.select([self._socket], [], [], 1)
+            ready = select.select([self._socket], [], [])
             if ready[0]:
                 msg = self._socket.recv(1024)
                 if msg:
