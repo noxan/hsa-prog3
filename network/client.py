@@ -1,11 +1,12 @@
 import socket
 
 
-s = socket.socket()
+class Client(object):
+    def __init__(self, host="localhost", port=10857):
+        super(Client, self).__init__()
+        self.host = host
+        self.port = port
 
-host = socket.gethostname()
-port = 10857
-
-s.connect((host, port))
-print s.recv(1024)
-s.close()
+    def connect(self):
+        self._socket = socket.socket()
+        self._socket.connect((self.host, self.port))
