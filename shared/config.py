@@ -42,12 +42,3 @@ class ConfigManager():
         writeConfig = open("config.txt", "w")
         writeConfig.write(file)
         writeConfig.close
-
-
-
-#test:
-
-c = ConfigManager("config.txt")
-print c.getConfig("runden")
-c.setConfig("runden", 25)
-print c.getConfig("runden")
