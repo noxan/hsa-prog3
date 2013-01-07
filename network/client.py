@@ -19,6 +19,11 @@ class Client(threading.Thread):
         self.connected = True
         self.run()
 
+    def disconnect(self):
+        self._socket.close()
+        self.connected = False
+        self.join(3)
+
     def run(self):
         while self.connected:
             ready = select.select([self._socket], [], [])
