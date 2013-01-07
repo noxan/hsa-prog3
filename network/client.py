@@ -25,6 +25,6 @@ class Client(threading.Thread):
             if ready[0]:
                 msg = self._socket.recv(1024)
                 if msg:
-                    print msg
+                    print '"%s"' % (msg.strip())
                 else:
                     self.connected = False
