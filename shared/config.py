@@ -6,7 +6,7 @@ Created on Sun Nov  18 19:45:10 2012
 """
 
 
-class ConfigManager():
+class ConfigManager(object):
 
 # ließt und schreibt config file
 
