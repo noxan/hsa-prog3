@@ -47,9 +47,7 @@ class ConfigManager():
 
 #test:
 
-penis = ConfigManager("config.txt")
-a = penis.getConfig("runden")
-print a
-penis.setConfig("runden", 25)
-a = penis.getConfig("runden")
-print a
+c = ConfigManager("config.txt")
+print c.getConfig("runden")
+c.setConfig("runden", 25)
+print c.getConfig("runden")
