@@ -15,3 +15,8 @@ class Client(threading.Thread):
         self._socket = socket.socket()
         self._socket.connect((self.host, self.port))
         self.connected = True
+        self.run()
+
+    def run(self):
+        while self.connected:
+            pass
